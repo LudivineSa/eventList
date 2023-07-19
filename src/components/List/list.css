@@ -1,0 +1,76 @@
+.listContainer {
+    border: 2px solid #646CFF;
+    border-radius: 25px;
+    margin: 1rem;
+    width: fit-content;
+    padding: 2rem;
+    background-color: #ffffff;
+    position: relative;
+    color: #151631;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  }
+
+  .headerList {
+    font-weight: bold;
+    background-color: #646CFF;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .headerListNeeded {
+    background-color: #ff64be;
+  }
+
+  .btnTakeCare {
+    background-color: #ff64be;
+    border: 1px solid white;
+  }
+
+  .btnTakeCare:hover {
+    background-color: white;
+    color: #ff64be;
+    border: 1px solid #ff64be;
+  }
+  
+  .headerList > p {
+    color: white;
+  }
+  
+  .listItem, .listNeededItem {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 0.3fr; /* Les trois premiers éléments ont la même taille, le dernier est plus petit */
+  }
+
+  .emptyList {
+    margin: 1rem;
+    font-style: italic;
+  }
+
+  .showNeedBtn {
+    position: absolute;
+    top: 1rem;
+    right : 1rem;
+  }
+
+  .items {
+    padding: 1rem 1rem;
+    margin: 0;
+    border-top: none;
+    background-color: rgb(233, 233, 233);
+    font-weight: bold;
+  }
+
+  .items:nth-child(even) {
+    background-color: #FFFFFF;
+  }
+
+  .action {
+    text-align: center;
+    align-self: center;
+  }
+
+  .trashcan {
+    margin-right: auto;
+    margin-left: auto;
+  }

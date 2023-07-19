@@ -1,0 +1,27 @@
+.inputContainer {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.submitBtn {
+    background-color: #646cff;
+    color: white;
+    border: 1px solid #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+.submitBtn:hover {
+  color: #646cff;
+  background-color: white;
+  border: 1px solid #646cff;
+}
+  
+  .tiers {
+    max-width: 33%;
+  }
