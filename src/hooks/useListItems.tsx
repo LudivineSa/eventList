@@ -75,7 +75,7 @@ export const useListItems = () => {
     }
 
     const deleteFromNeededList = (uidEvent: string, uidList: string, uidItem: string, userId: string) => {
-            const listNeededRef = ref(database, `Events/${user.uid}/event/${uidEvent}/${uidList}/listNeeded/${uidItem}`);
+            const listNeededRef = ref(database, `Events/${userId}/event/${uidEvent}/${uidList}/listNeeded/${uidItem}`);
             remove(listNeededRef)
                 .catch((error) => {
                     console.error("Erreur lors de la suppression de l'élément de Firebase :", error);
