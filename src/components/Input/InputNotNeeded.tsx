@@ -28,17 +28,19 @@ export const InputNotNeeded = (props: InputProps) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputContainer">
-                <div className="tiers">
-                    <input type="text" {...register('name')} placeholder="Ajouter un item" />
-                    {errors.name && <p className='errorMessage'>{errors.name.message}</p>}
-                </div>
-                <div>
-                    <input type="number" {...register('quantity')} placeholder="Quantité" className="inputNumber" />
-                    {errors.quantity && <p>{errors.quantity.message}</p>}
-                </div>
-                <div>
-                    <input type="text" {...register('who')} placeholder="Qui l'apporte?" />
-                    {errors.who && <p>{errors.who.message}</p>}
+                <div className="flex">
+                    <div className="tiers">
+                        <input type="text" {...register('name')} placeholder="Item" />
+                        {errors.name && <p className='errorMessage'>{errors.name.message}</p>}
+                    </div>
+                    <div>
+                        <input type="number" {...register('quantity')} placeholder="Quantité" className="inputNumber" />
+                        {errors.quantity && <p>{errors.quantity.message}</p>}
+                    </div>
+                    <div>
+                        <input type="text" {...register('who')} placeholder="Qui l'apporte?" />
+                        {errors.who && <p>{errors.who.message}</p>}
+                    </div>
                 </div>
             </div>
             <button type="submit" className="submitBtn">Ajouter</button>

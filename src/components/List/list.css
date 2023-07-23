@@ -1,36 +1,36 @@
 .listContainer {
-    border: 2px solid #646CFF;
+    border: 2px solid #3a3f9b;
     border-radius: 25px;
     margin: 1rem;
     width: fit-content;
-    padding: 2rem;
     background-color: #ffffff;
     position: relative;
+    padding: 2rem;
     color: #151631;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
   }
 
   .headerList {
     font-weight: bold;
-    background-color: #646CFF;
+    background-color: #3a3f9b;
     color: white;
     padding: 1rem;
     border-radius: 10px 10px 0px 0px;
   }
 
   .headerListNeeded {
-    background-color: #ff64be;
+    background-color: #833161;
   }
 
   .btnTakeCare {
-    background-color: #ff64be;
+    background-color: #833161;
     border: 1px solid white;
   }
 
   .btnTakeCare:hover {
     background-color: white;
-    color: #ff64be;
-    border: 1px solid #ff64be;
+    color: #833161;
+    border: 1px solid #833161;
   }
   
   .headerList > p {
@@ -39,7 +39,7 @@
   
   .listItem, .listNeededItem {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 0.3fr; /* Les trois premiers éléments ont la même taille, le dernier est plus petit */
+    grid-template-columns: 1.2fr 0.3fr 1.2fr 0.3fr; /* Les trois premiers éléments ont la même taille, le dernier est plus petit */
   }
 
   .emptyList {
@@ -51,6 +51,15 @@
     position: absolute;
     top: 1rem;
     right : 1rem;
+    background-color: #833161;
+    border: 3px solid #833161;
+  }
+
+  .showNeedBtn:hover {
+    background-color: white;
+    color: #833161;
+    border: 3px solid #833161;
+    font-weight: bold;
   }
 
   .items {
@@ -73,4 +82,13 @@
   .trashcan {
     margin-right: auto;
     margin-left: auto;
+  }
+
+
+
+  @media (max-width: 768px) {
+    .listContainer{
+      width: 100vw;
+      padding: 1rem;
+    }
   }

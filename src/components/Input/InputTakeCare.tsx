@@ -31,15 +31,17 @@ export const InputTakeCare = (props: InputProps) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputContainer">
-                <div>
-                    <input type="number" {...register('quantity')} placeholder="Quantité" className="inputNumber" />
-                    {errors.quantity && <p>{errors.quantity.message}</p>}
-                </div>
-                <div className="tiers">
-                    <input type="text" {...register('who')} placeholder="Qui apporte?" />
-                    {errors.who && <p className='errorMessage'>{errors.who.message}</p>}
-                </div>
-                <button type="submit" className="submitBtn">Ajouter</button>
+                <div className='flex'>
+                    <div className="tiers">
+                        <input type="number" {...register('quantity')} placeholder="Quantité" className="inputNumber" />
+                        {errors.quantity && <p>{errors.quantity.message}</p>}
+                    </div>
+                    <div>
+                        <input type="text" {...register('who')} placeholder="Qui" />
+                        {errors.who && <p className='errorMessage'>{errors.who.message}</p>}
+                    </div>
+                    </div>
+                    <button type="submit" className="submitBtn">Ajouter</button>
             </div>
         </form>
     )

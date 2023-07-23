@@ -28,13 +28,15 @@ export const InputNeeded = (props: InputProps) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputContainer">
-                <div className="tiers">
-                    <input type="text" {...register('name')} placeholder="Ajouter un item" />
-                    {errors.name && <p className='errorMessage'>{errors.name.message}</p>}
-                </div>
-                <div>
-                    <input type="number" {...register('quantity')} placeholder="Quantité" className="inputNumber" />
-                    {errors.quantity && <p>{errors.quantity.message}</p>}
+                <div className="flex">
+                    <div >
+                        <input type="text" {...register('name')} placeholder="Item" />
+                        {errors.name && <p className='errorMessage'>{errors.name.message}</p>}
+                    </div>
+                    <div className="tiers">
+                        <input type="number" {...register('quantity')} placeholder="Quantité" className="inputNumber" />
+                        {errors.quantity && <p>{errors.quantity.message}</p>}
+                    </div>
                 </div>
                 <button type="submit" className="submitBtn">Ajouter</button>
             </div>

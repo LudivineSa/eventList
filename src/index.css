@@ -10,7 +10,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #3a3f9b;
   text-decoration: inherit;
 }
 a:hover {
@@ -27,7 +27,7 @@ h1 {
   line-height: 1.1;
   text-align: center;
   margin: 2rem;
-  color: #646cff;
+  color: #3a3f9b;
 }
 
 button {
@@ -37,14 +37,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #646cff;
+  background-color: #3a3f9b;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #3a3f9b;
   background-color: white;
-  color: #646cff;
+  color: #3a3f9b;
 }
 
 button:focus,
@@ -88,12 +88,19 @@ h2 {
 }
 
 input {
-  color: #646cff;
+  color: #3a3f9b;
   padding: 0.5rem;
   border: none;
-  border-bottom: 2px solid #646cff;
+  border-bottom: 2px solid #47a6b3;
   font-size: 1rem;
   background-color: white;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
 
 .clickable {
@@ -102,7 +109,7 @@ input {
 
 .listItem, .listNeededItem {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat 1fr 0.5fr 1fr 0.5fr;
 }
 
 .listNeededItem {
@@ -114,3 +121,55 @@ input {
   gap: 1rem;
 }
 
+.containerForm {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.authForm {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 2rem;
+  background-color: #3a3f9b;
+  color: white;
+  justify-content: end;
+}
+
+nav > a {
+  color: white;
+}
+
+.createListBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+
+.createListForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.link {
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
