@@ -2,7 +2,7 @@ import { FormNeededInput } from "../../utils/interface";
 import {  InputNotNeeded } from "../Input/InputNotNeeded";
 import { InputNeeded } from "../Input/InputNeeded";
 import { useContext, useEffect, useState } from 'react'
-import './List.css';
+import './list.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { ListNeededItems } from "./ListNeededItems.tsx/ListNeededItems";
@@ -62,7 +62,7 @@ export const Item = (props : ListProps) => {
                     <ListNeededItems  key={item.id} item={item} deleteFromNeededList={deleteFromNeeded} takeCare={takeCareItem} />
                 )
             })}
-            {user.email && <button onClick={() => setShowNeeded(!showNeeded)} className="showNeedBtn">{showNeeded ? "Cacher" : "Ajouter un besoin"}</button>}
+            {params.userId === user.uid && <button onClick={() => setShowNeeded(!showNeeded)} className="showNeedBtn">{showNeeded ? "Cacher" : "Ajouter un besoin"}</button>}
             {showNeeded && <InputNeeded addToList={addToNeeded}  />}
             <h3>Ce qu'on a déjà</h3>
                 <div className="listItem headerList">

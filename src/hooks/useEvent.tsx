@@ -14,7 +14,7 @@ export const useEvent = () => {
 
     const add = (item: string) => {
         const eventsRef = ref(database, `Events/${user.uid}/event`);
-        push(eventsRef, {name: item, user: user.uid}).then((data) => console.log(data)).catch((e) => console.log(e))
+        push(eventsRef, {name: item, user: user.uid}).catch((e) => console.log(e))
         get()
     };
 
@@ -52,7 +52,7 @@ export const useEvent = () => {
 
     const addListToEvent = (id: string, name: string) => {
         const eventsRef = ref(database, `Events/${user.uid}/event/${id}`);
-        push(eventsRef, {name: name, neededItems : {}, itemsBrought: {}}).then((data) => console.log(data)).catch((e) => console.log(e))
+        push(eventsRef, {name: name, neededItems : {}, itemsBrought: {}}).catch((e) => console.log(e))
         getSingleEvent(id, user.uid);
     }
 

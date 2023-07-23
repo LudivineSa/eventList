@@ -40,18 +40,18 @@ export const useListItems = () => {
 
     const addToList = (data: FormInput, uidEvent: string, uidList : string, userId: string) => {
         const eventsRef = ref(database, `Events/${userId}/event/${uidEvent}/${uidList}/list`);
-        push(eventsRef, data).then((data) => console.log(data)).catch((e) => console.log(e))
+        push(eventsRef, data).catch((e) => console.log(e))
         getList(uidEvent, uidList, userId);
     }
 
     const deleteFromList = (uidEvent: string, uidList: string, uidItem: string, userId: string) => {
         const listRef = ref(database, `Events/${userId}/event/${uidEvent}/${uidList}/list/${uidItem}`);
         const item = listItems.find((item) => item.id === uidItem);
-        remove(listRef).then((e) => console.log(e)).catch((e) => console.log(e));
+        remove(listRef).catch((e) => console.log(e));
         if (item?.needed) {
             const listRef = ref(database, `Events/${userId}/event/${uidEvent}/${uidList}/listNeeded`);
             const itemNeeded = { name: item.name, quantity: item.quantity, needed: true};
-            push(listRef, itemNeeded).then((data) => console.log(data)).catch((e) => console.log(e))
+            push(listRef, itemNeeded).catch((e) => console.log(e))
         }
         getList(uidEvent, uidList, userId);
         
@@ -61,13 +61,13 @@ export const useListItems = () => {
         const itemToChange = listNeededItems.find((item) => item.id === data.id);
         if (itemToChange) {
             const eventsRef = ref(database, `Events/${userId}/event/${uidEvent}/${uidList}/list`);
-            const item = { name: itemToChange.name, quantity: data.quantity, who: data.who, needed: true};
+            const item = { name: itemToChange.name, quantity: data.quantity, who: data.name, needed: true};
             push(eventsRef, item).then(() => getList(uidEvent, uidList, userId)).catch((e) => console.log(e))
             if(itemToChange.quantity - data.quantity <= 0){
-                deleteFromNeededList(data.id, uidEvent, uidList, userId);
+                deleteFromNeededList(uidEvent, uidList, data.id, userId);
             } else {
                 const listNeededRef = ref(database, `Events/${userId}/event/${uidEvent}/${uidList}/listNeeded/${data.id}`);
-                const itemNeeded = { name: itemToChange.name, quantity: itemToChange.quantity - data.quantity, who: data.who, needed: true};
+                const itemNeeded = { name: itemToChange.name, quantity: itemToChange.quantity - data.quantity, who: data.name, needed: true};
                 update(listNeededRef, itemNeeded).then(() => getList(uidEvent, uidList, userId)).catch((e) => console.log(e))
             }
         }
@@ -75,16 +75,11 @@ export const useListItems = () => {
     }
 
     const deleteFromNeededList = (uidEvent: string, uidList: string, uidItem: string, userId: string) => {
-        if(userId === user.uid){
             const listNeededRef = ref(database, `Events/${user.uid}/event/${uidEvent}/${uidList}/listNeeded/${uidItem}`);
             remove(listNeededRef)
-                .then(() => {
-                    console.log("L'élément a été supprimé avec succès de Firebase !");
-                })
                 .catch((error) => {
                     console.error("Erreur lors de la suppression de l'élément de Firebase :", error);
                 });
-        }
         getList(uidEvent, uidList, userId);
     }
 
@@ -92,7 +87,7 @@ export const useListItems = () => {
         if(userId === user.uid){
             const dataClone = {...data, needed: true}
             const eventsRef = ref(database, `Events/${user.uid}/event/${uidEvent}/${uidList}/listNeeded`);
-            push(eventsRef, dataClone).then((data) => console.log(data)).catch((e) => console.log(e))
+            push(eventsRef, dataClone).catch((e) => console.log(e))
         }
         getList(uidEvent, uidList, userId)
     }

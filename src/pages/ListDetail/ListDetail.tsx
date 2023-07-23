@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { Item } from '../../components/List/Item.tsx';
 
-import './ListDetail.css';
+import './listdetail.css';
 import { useEvent } from '../../hooks/useEvent.tsx';
 import { UserContext } from '../../context/UserContext.tsx';
 

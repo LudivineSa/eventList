@@ -6,7 +6,7 @@ import { User } from '../utils/interface';
 import { auth } from '../firebase-config';
 
 
-export const UserContext = createContext({user: {email: '', accessToken: '', uid: ''}, disconnectUser: () => {console.log("déconnecté")}, loginUser: (email: string, password: string) => {console.log(email, password)}, registerUser: (username: string, email: string, password: string) => console.log(username, email, password) });
+export const UserContext = createContext({user: {email: '', accessToken: '', uid: ''}, disconnectUser: () => {console.log("déconnecté")}, loginUser: (email: string, password: string) => {console.log(email, password)}, registerUser: (email: string, password: string) => console.log(email, password) });
 
 interface UserProviderProps {
     children: React.ReactNode;
@@ -25,7 +25,6 @@ export const UserProvider = (props : UserProviderProps) => {
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     const userEmail = localStorage.getItem('userEmail');
-    console.log(userId)
     if(userId) {
       setUser({email: userEmail || 'null@gmail.com', accessToken: '', uid: userId});
     }
@@ -61,6 +60,7 @@ export const UserProvider = (props : UserProviderProps) => {
     localStorage.removeItem('userId');
     localStorage.removeItem('userEmail');
     setUser({email: '', accessToken: '', uid: ''});
+    navigate("/login");
   }
 
   return (

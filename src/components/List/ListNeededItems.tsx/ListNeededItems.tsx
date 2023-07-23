@@ -25,7 +25,7 @@ export const ListNeededItems = (props: ListNeededItemsProps) => {
             <p>{item.name}</p>
             <p>{item.quantity}</p>
             <button onClick={() => setShowTakeCareForm(!showTakeCareForm)} className="btnTakeCare">Je m'en occupe </button>
-            {params.uid === user.uid && <FontAwesomeIcon icon={faTrashCan}  className="clickable trashcan" color="#303030" onClick={() => deleteFromNeededList(item.id)}/>}                  
+            {params.userId === user.uid && <FontAwesomeIcon icon={faTrashCan}  className="clickable trashcan" color="#303030" onClick={() => deleteFromNeededList(item.id)}/>}                  
         </div>
         {showTakeCareForm && <InputTakeCare addToList={takeCare}  id={item.id} hideTakeCareForm={() => setShowTakeCareForm(false)} />}
     </div>

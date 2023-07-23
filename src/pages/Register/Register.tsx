@@ -24,7 +24,7 @@ export const Register = () => {
     });
 
     const onSubmit = (data: any) => {
-        registerUser(data.username, data.email, data.password)
+        registerUser(data.email, data.password)
     }
 
     useEffect(() => {
