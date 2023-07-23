@@ -17,7 +17,7 @@ export const Login = () => {
         password: yup.string().required("Le mot de passe est requis").min(8, 'Le mot de passe doit contenir au moins 8 caractères'),
     })
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 

@@ -8,7 +8,6 @@ import { Item } from '../../components/List/Item.tsx';
 
 import './ListDetail.css';
 import { useEvent } from '../../hooks/useEvent.tsx';
-import { Event } from '../../utils/interface.ts';
 import { UserContext } from '../../context/UserContext.tsx';
 
 
@@ -24,7 +23,7 @@ export const ListDetail = () => {
     name: yup.string().required("Le nom est requis"),
   })
 
-const { register, handleSubmit, formState: { errors }, reset } = useForm({
+const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 

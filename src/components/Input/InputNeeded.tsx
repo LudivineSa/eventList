@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { FormNeededInput } from '../../utils/interface'
@@ -6,6 +6,11 @@ import './input.css'
 
 interface InputProps {
     addToList: (data: FormNeededInput) => void;
+}
+
+interface DataShape {
+    name: string;
+    quantity: number;
 }
 export const InputNeeded = (props: InputProps) => {
     const { addToList } = props;
@@ -20,7 +25,7 @@ export const InputNeeded = (props: InputProps) => {
       });
 
 
-      const onSubmit = (data: FormNeededInput) => {
+      const onSubmit : SubmitHandler<DataShape> = (data: DataShape) => {
         addToList({...data, id: JSON.stringify(Date.now())});
         reset({ name: '', quantity: 0 })
       };

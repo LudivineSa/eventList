@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { ref, onValue, push, DataSnapshot } from 'firebase/database';
-
 import { database } from '../firebase-config';
+
 import { UserContext } from '../context/UserContext';
 import { Event } from '../utils/interface';
 
@@ -51,10 +51,8 @@ export const useEvent = () => {
     }
 
     const addListToEvent = (id: string, name: string) => {
-        let idList = ""
         const eventsRef = ref(database, `Events/${user.uid}/event/${id}`);
-        push(eventsRef, {name: name, neededItems : {}, itemsBrought: {}}).then((data) => {
-            if(data.key) { idList = data.key }}).catch((e) => console.log(e))
+        push(eventsRef, {name: name, neededItems : {}, itemsBrought: {}}).then((data) => console.log(data)).catch((e) => console.log(e))
         getSingleEvent(id, user.uid);
     }
 

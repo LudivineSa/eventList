@@ -1,11 +1,10 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { FormInput, FormNeededInput } from "../utils/interface";
 import { ref, onValue, push, DataSnapshot, remove, update } from 'firebase/database';
 
 
 import { database } from '../firebase-config';
 import { UserContext } from '../context/UserContext';
-import { Event } from '../utils/interface';
 
 export const useListItems = () => {
 

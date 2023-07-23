@@ -19,7 +19,7 @@ export const Register = () => {
         confirmPassword: yup.string().required("La confirmation du mot de passe est requise").oneOf([yup.ref('password')], 'Les mots de passe doivent correspondre')
     })
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 

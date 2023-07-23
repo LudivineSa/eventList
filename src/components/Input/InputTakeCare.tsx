@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { FormNeededInput } from '../../utils/interface'
@@ -8,6 +8,11 @@ interface InputProps {
     addToList: (data: FormNeededInput) => void;
     id: string;
     hideTakeCareForm: () => void;
+}
+
+interface DataShape {
+    quantity: number;
+    who: string;
 }
 export const InputTakeCare = (props: InputProps) => {
     const { addToList, id, hideTakeCareForm} = props;
@@ -22,8 +27,8 @@ export const InputTakeCare = (props: InputProps) => {
       });
 
 
-      const onSubmit = (data: FormNeededInput) => {
-        addToList({...data, id});
+      const onSubmit : SubmitHandler<DataShape> = (data: DataShape) => {
+        addToList({name: data.who, quantity: data.quantity, id});
         reset({ who: '', quantity: 0 })
         hideTakeCareForm();
       };

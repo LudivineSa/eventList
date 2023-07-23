@@ -6,7 +6,7 @@ import { User } from '../utils/interface';
 import { auth } from '../firebase-config';
 
 
-export const UserContext = createContext({user: {email: '', accessToken: '', uid: ''}, disconnectUser: () => {console.log("déconnecté")}, loginUser: (email: string, password: string) => {console.log(email)}, registerUser: (username: string, email: string, password: string) => console.log("ok") });
+export const UserContext = createContext({user: {email: '', accessToken: '', uid: ''}, disconnectUser: () => {console.log("déconnecté")}, loginUser: (email: string, password: string) => {console.log(email, password)}, registerUser: (username: string, email: string, password: string) => console.log(username, email, password) });
 
 interface UserProviderProps {
     children: React.ReactNode;
@@ -53,7 +53,7 @@ export const UserProvider = (props : UserProviderProps) => {
     setUser(user);
   };
 
-  const registerUser = (username: string, email: string, password: string) => {
+  const registerUser = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password).then(() => navigate("/login")).catch((e) => console.log(e))
   }
 

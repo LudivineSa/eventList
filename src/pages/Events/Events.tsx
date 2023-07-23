@@ -18,7 +18,7 @@ export const Events = () => {
         name: yup.string().required("Le nom est requis"),
     })
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 
@@ -39,7 +39,7 @@ export const Events = () => {
         <div>
             <h1>Mes évènements</h1>
             <ul>
-                {events.map((item, index) => <li key={item.uid}><Link to={`/list/${user.uid}/${item.uid}`} key={item.uid}>{item.name}</Link></li>)}  
+                {events.map((item) => <li key={item.uid}><Link to={`/list/${user.uid}/${item.uid}`} key={item.uid}>{item.name}</Link></li>)}  
             </ul>
             {user.email && !showCreateList && <button className="createListBtn" onClick={() => setShowCreateList(true)}>Créer une liste</button>}
             {showCreateList &&
